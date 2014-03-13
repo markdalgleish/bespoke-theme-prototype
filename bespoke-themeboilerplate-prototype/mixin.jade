@@ -1,0 +1,133 @@
+mixin bespoke-themeboilerplate(options)
+
+  mixin slide(state)
+    section(data-bespoke-state=state)
+      block
+
+  mixin slides(state)
+    +slide(state)
+      h1= options.title
+      h2 A <a href="https://github.com/markdalgleish/bespoke.js">Bespoke.js</a> Theme
+      h3 Created by
+        a(href=options.authorUrl)= options.authorName
+
+    +slide(state)
+      .bullet
+      h1 H1 Heading
+      h2 H2 Heading
+      h3 H3 Heading
+      h4 H4 Heading
+      p Paragraph
+
+    +slide(state)
+      h1 H1 <a href="https://github.com/markdalgleish/bespoke.js">with a link</a> that's long enough to wrap
+
+    +slide(state)
+      h1 Short H1
+      h2 H2 <a href="https://github.com/markdalgleish/bespoke.js">with a link</a> that's long enough to wrap
+
+    +slide(state)
+      h1 Short H1
+      h2 Short H2
+      h3 H3 Heading <a href="https://github.com/markdalgleish/bespoke.js">with a link</a> that's long enough to wrap. It might take a little more, since it's an H3.
+
+    +slide(state)
+      h2 Unordered lists
+      ul
+        li Unordered lists are pretty popular
+        li They'll probably contain at least a few items
+        li Some items are longer than others. You probably want to make sure your theme can handle this.
+
+    +slide(state)
+      h2 Ordered lists
+      ol
+        li Ordered lists aren't quite as popular
+        li They also probably contain at least a few items
+        li Some items are longer than others. You probably want to make sure your theme can handle this.
+
+    +slide(state)
+      h2 Quotes
+      p Someone really important once said <q>Help, I'm inside a &lt;q&gt; tag</q>.
+      blockquote What about me? I'm trapped inside a giant &lt;blockquote&gt; tag
+
+    +slide(state)
+      h1 Code
+      h2 Powered by <a href="http://prismjs.com">(Prism)</a>
+
+    +slide(state)
+      h2 JavaScript
+      pre
+        code.language-javascript.
+          var foobar = function(argument) {
+            // Return something
+            return [
+              123, /regular expression/,
+              { object: true },
+              "a line that's a reasonably average length"
+            ];
+          };
+
+    +slide(state)
+      h2 HTML &amp; CSS
+      pre
+        code.language-markup.
+          &lt;h2 class="bullet"&gt;HTML &amp;amp; CSS&lt;/h2&gt;
+      pre
+        code.language-css.
+          .lol { background: url(lol.gif); }
+          @media screen and (min-width: 480px) {
+            blockquote:before {
+              font-size: 2rem;
+              content: "\201C";
+            }
+          }
+
+    +slide(state)
+      h1 Thank you!
+      h3: a(href=options.authorUrl)= options.authorName
+
+
+  doctype html
+  html
+    head
+      meta(charset='utf-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+      title
+        | Bespoke.js Theme: 
+        = options.title
+        |  by 
+        = options.authorName
+
+      // build:css styles/styles.css
+      link(rel='stylesheet', type='text/css', href=options.bowerComponentsPath + 'prism/themes/prism-tomorrow.css')
+      link(rel='stylesheet', type='text/css', href=options.themeFile)
+      // endbuild
+
+    body
+
+      article#bespoke-themeboilerplate
+
+        +slides()
+
+        +slide('emphatic')
+          h1 Emphatic Styles
+          h3 data-bespoke-state="emphatic"
+          p Let's loop back around...
+
+        +slides('emphatic')
+
+      // build:js scripts/scripts.js
+      script(src=options.bowerComponentsPath + 'bespoke.js/dist/bespoke.min.js')
+      script(src=options.bowerComponentsPath + 'bespoke-keys/dist/bespoke-keys.min.js')
+      script(src=options.bowerComponentsPath + 'bespoke-touch/dist/bespoke-touch.min.js')
+      script(src=options.bowerComponentsPath + 'bespoke-bullets/dist/bespoke-bullets.min.js')
+      script(src=options.bowerComponentsPath + 'bespoke-scale/dist/bespoke-scale.min.js')
+      script(src=options.bowerComponentsPath + 'bespoke-hash/dist/bespoke-hash.min.js')
+      script(src=options.bowerComponentsPath + 'bespoke-progress/dist/bespoke-progress.min.js')
+      script(src=options.bowerComponentsPath + 'bespoke-state/dist/bespoke-state.min.js')
+      script(src=options.bowerComponentsPath + 'bespoke-forms/dist/bespoke-forms.min.js')
+      script(src=options.bowerComponentsPath + 'prism/prism.js')
+      script(src=options.bowerComponentsPath + 'bespoke-themeboilerplate/scripts/main.js')
+      // endbuild
+
+      script: include scripts/main.js
