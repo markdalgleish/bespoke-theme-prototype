@@ -98,10 +98,8 @@ mixin bespoke-themeboilerplate(options)
         |  by 
         = options.authorName
 
-      // build:css styles/styles.css
-      link(rel='stylesheet', type='text/css', href=options.bowerComponentsPath + 'prism/themes/prism-tomorrow.css')
+      style: include bower_components/prism/themes/prism-tomorrow.css
       link(rel='stylesheet', type='text/css', href=options.themeFile)
-      // endbuild
 
     body
 
@@ -116,18 +114,15 @@ mixin bespoke-themeboilerplate(options)
 
         +slides('emphatic')
 
-      // build:js scripts/scripts.js
-      script(src=options.bowerComponentsPath + 'bespoke.js/dist/bespoke.min.js')
-      script(src=options.bowerComponentsPath + 'bespoke-keys/dist/bespoke-keys.min.js')
-      script(src=options.bowerComponentsPath + 'bespoke-touch/dist/bespoke-touch.min.js')
-      script(src=options.bowerComponentsPath + 'bespoke-bullets/dist/bespoke-bullets.min.js')
-      script(src=options.bowerComponentsPath + 'bespoke-scale/dist/bespoke-scale.min.js')
-      script(src=options.bowerComponentsPath + 'bespoke-hash/dist/bespoke-hash.min.js')
-      script(src=options.bowerComponentsPath + 'bespoke-progress/dist/bespoke-progress.min.js')
-      script(src=options.bowerComponentsPath + 'bespoke-state/dist/bespoke-state.min.js')
-      script(src=options.bowerComponentsPath + 'bespoke-forms/dist/bespoke-forms.min.js')
-      script(src=options.bowerComponentsPath + 'prism/prism.js')
-      script(src=options.bowerComponentsPath + 'bespoke-themeboilerplate/scripts/main.js')
-      // endbuild
-
+      script: include bower_components/bespoke.js/dist/bespoke.min.js
+      script: include bower_components/bespoke-keys/dist/bespoke-keys.min.js
+      script: include bower_components/bespoke-touch/dist/bespoke-touch.min.js
+      script: include bower_components/bespoke-bullets/dist/bespoke-bullets.min.js
+      script: include bower_components/bespoke-scale/dist/bespoke-scale.min.js
+      script: include bower_components/bespoke-hash/dist/bespoke-hash.min.js
+      script: include bower_components/bespoke-progress/dist/bespoke-progress.min.js
+      script: include bower_components/bespoke-state/dist/bespoke-state.min.js
+      script: include bower_components/bespoke-forms/dist/bespoke-forms.min.js
       script: include scripts/main.js
+
+      script: include bower_components/prism/prism.js
