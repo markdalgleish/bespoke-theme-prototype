@@ -35,50 +35,47 @@ mixin bespoke-themeboilerplate(options)
       h2 Unordered lists
       ul
         li Unordered lists are pretty popular
-        li They'll probably contain at least a few items
-        li Some items are longer than others. You probably want to make sure your theme can handle this.
+        li They'll probably contain at least a couple of items
+        li Some items are longer than others. For example, this bullet point is about twice as long as the last one.
 
     +slide(state)
       h2 Ordered lists
       ol
         li Ordered lists aren't quite as popular
-        li They also probably contain at least a few items
-        li Some items are longer than others. You probably want to make sure your theme can handle this.
+        li They also probably contain at least a couple of items
+        li Some items are longer than others. For example, this bullet point is about twice as long as the last one.
 
     +slide(state)
       h2 Quotes
-      p Someone really important once said <q>Help, I'm inside a &lt;q&gt; tag</q>.
-      blockquote What about me? I'm trapped inside a giant &lt;blockquote&gt; tag
+      blockquote Some quotes, like this one, are inside a &lt;blockquote&gt; tag. They are likely to span at least a couple of lines.
+      p Other quotes, like the following, are <q>inlined inside a &lt;q&gt; tag</q>.
 
     +slide(state)
       h1 Code
       h2 Powered by <a href="http://prismjs.com">(Prism)</a>
 
     +slide(state)
-      h2 JavaScript
       pre
         code.language-javascript.
-          var foobar = function(argument) {
-            // Return something
+          var js = function() {
             return [
-              123, /regular expression/,
-              { object: true },
-              "a line that's a reasonably average length"
-            ];
+              123, /regex/,
+              { prop: true },
+              "a string"
+            ]; // A comment
           };
 
     +slide(state)
-      h2 HTML &amp; CSS
       pre
         code.language-markup.
           &lt;h2 class="bullet"&gt;HTML &amp;amp; CSS&lt;/h2&gt;
       pre
         code.language-css.
-          .lol { background: url(lol.gif); }
           @media screen and (min-width: 480px) {
-            blockquote:before {
-              font-size: 2rem;
-              content: "\201C";
+            p:before {
+              background: url(image.gif);
+              font-size: 1rem;
+              content: "string";
             }
           }
 
