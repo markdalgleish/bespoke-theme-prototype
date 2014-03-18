@@ -10,6 +10,7 @@ mixin bespoke-themeboilerplate(options)
       h2 A <a href="https://github.com/markdalgleish/bespoke.js">Bespoke.js</a> Theme
       h3 Created by
         a(href=options.authorUrl)= options.authorName
+      p: small: a(href=options.githubUrl)= options.githubUrl.replace(/http(s)?:\/\/(www.)?github.com\//,'')
 
     +slide(state)
       .bullet
