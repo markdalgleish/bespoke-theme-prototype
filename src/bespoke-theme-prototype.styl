@@ -1,6 +1,4 @@
-@import 'nib' // CSS3 extensions for Stylus: http://visionmedia.github.io/nib/
-
-// variables!
+@import 'nib'
 
 slide_width = 640px
 slide_height = 480px
@@ -9,14 +7,11 @@ slide_background = #eaeaea
 slide_transition_length = .6s
 slide_transition_easing = ease
 slide_transition_rotate_y = 90deg
-// Safari bugs out on 3d transform-origins, so we have to fake it
 slide_transition_nudge_x = -100px
 
 bullet_transition_length = .3s
 bullet_transition_easing = ease
 bullet_transition_translate_x = 16px
-
-// base
 
 *
   box-sizing: border-box
@@ -30,8 +25,6 @@ bullet_transition_translate_x = 16px
 @page
   size: landscape
   margin: 0
-
-// bespoke.js layout styles
 
 article
   transition: background slide_transition_length slide_transition_easing
@@ -54,6 +47,7 @@ article
     transform slide_transition_length slide_transition_easing,
     opacity slide_transition_length slide_transition_easing,
     background slide_transition_length slide_transition_easing
+  transform: translate3d(0,0,0)
   transform-origin: 50% 50% 0
   backface-visibility: hidden
   display: flex
@@ -207,6 +201,10 @@ p
 
 blockquote
   margin-bottom: 22px
+  &:before
+    content: open-quote
+  &:after
+    content: close-quote
 
 a
   color: #0089f3
